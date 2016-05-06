@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring accessors="true" comment="Delete element from project &apos;MusicStoreSpringMVC&apos;&#x0D;&#x0A;- Original project: &apos;MusicStoreSpringMVC&apos;&#x0D;&#x0A;- Original element: &apos;MusicStoreSpringMVC/src/com.musicStore&apos;&#x0D;&#x0A;- Delete subpackages" description="Delete element" element1="/src&lt;com.musicStore.Service" element2="/src&lt;com.musicStore.Entities" element3="/src&lt;com.musicStore.Dao" element4="/src&lt;com.musicStore.Controller" element5="/src&lt;com.musicStore" element6="/src&lt;com" elements="6" flags="589830" id="org.eclipse.jdt.ui.delete" resources="0" stamp="1453311024254" subPackages="true" version="1.0"/>
+</session>

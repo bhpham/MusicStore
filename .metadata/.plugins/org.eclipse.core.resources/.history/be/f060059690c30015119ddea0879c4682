@@ -1,0 +1,21 @@
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<link href="/resources/Site.css" rel="stylesheet" media="screen" />
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<title>Welcome</title>
+</head>
+<body>
+	
+	<div id="header">
+		<h1>SPRING MVC MUSIC STORE</h1>
+		<ul id="navlist">
+			<li class="first"><a href="/MusicStoreSpringMVC/" id="current">Home</a></li>
+			<li><a href="/MusicStoreSpringMVC/Store/">Store</a></li>
+		</ul>
+	</div>
+	
+</body>
+</html>

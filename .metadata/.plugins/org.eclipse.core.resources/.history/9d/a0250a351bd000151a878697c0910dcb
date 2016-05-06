@@ -1,0 +1,159 @@
+
+
+@Controller
+@RequestMapping("/Account")
+public class UserController {
+
+	@Resource(name = "userService")
+	private UserModel userModel;
+
+	@Resource(name = "userRoleService")
+	private UserRoleModel userRoleModel;
+
+	@Resource(name = "ordersService")
+	private OrdersModel ordersModel;
+
+	/**
+	 * Get to the Login page - GET
+	 * 
+	 * @param error
+	 * @param model
+	 * @return
+	 */
+	@RequestMapping(value = "/login", method = RequestMethod.GET)
+	public String getToLoginPage(
+			@RequestParam(value = "error", required = false) String error,
+			ModelMap model) {
+
+		Users tempUser = new Users();
+
+		model.addAttribute("login", tempUser);
+		return "Login";
+	}
+
+	/**
+	 * Get to the Login page - POST
+	 * 
+	 * @param error
+	 * @param loginUser
+	 * @param model
+	 * @return
+	 */
+	@RequestMapping(value = "/login", method = RequestMethod.POST)
+	public String verifyAccount(
+			@RequestParam(value = "error", required = false) boolean error,
+			@ModelAttribute("login") Users loginUser, ModelMap model) {
+
+		boolean checkLoginUser = false;
+		String destination = "";
+		String username = loginUser.getUsername();
+		String password = loginUser.getPassword();
+
+		if (checkLoginUser = userModel.verifyUser(username, password)) {
+			destination = "Checkout";
+		} else {
+			model.put("error",
+					"You've entered an invalid username or password !");
+			destination = "Login";
+		}
+
+		return destination;
+	}
+
+	/**
+	 * Get to the register page - GET
+	 * 
+	 * @param request
+	 * @return
+	 */
+	@RequestMapping(value = "/register", method = RequestMethod.GET)
+	public ModelAndView getToRegisterPage(HttpServletRequest request) {
+		return new ModelAndView("Register", "userModel", userModel);
+	}
+
+	@RequestMapping(value="/register", method=RequestMethod.POST)
+	public ModelAndView registerUser(
+			@RequestParam(value = "error", required = false) boolean error,
+			ModelMap model, HttpServletRequest request) {
+
+		System.out.println("In the Register page - POST");
+		
+		Users myUser = new Users();
+		String username, password, firstname, lastname;
+		int myUserRole = 2;
+		
+		//Create new user account
+		//Get information of an user object from the view page
+		username = request.getParameter("txtUsername");
+		password = request.getParameter("txtPassword");
+		firstname = request.getParameter("txtFirstname");
+		lastname = request.getParameter("txtLastname");
+		
+		
+		if (!isUserExist(username) {
+			
+			//put info into new user object
+			myUser.setFirstName(firstname);
+			myUser.setLastName(lastname);
+			myUser.setUsername(username);
+			myUser.setPassword(password);
+			myUser.setUserRole(userRoleModel.findUserRoleByUserRoleId(myUserRole));
+			
+			userModel.create(myUser);
+			model.put("error", "");
+			
+			//Create new shipping information - references to Order object
+			Order myOrder = new Order();
+			String address = request.getParameter("txtAddress");
+			String city = request.getParameter("txtCity");
+			String state = request.getParameter("txtState");
+			String country = request.getParameter("txtCountry");
+			String postalCode = request.getParameter("txtPostalCode");
+			String email = request.getParameter("txtEmail");
+			String phone = request.getParameter("txtPhone");
+			
+			Date today = new Date();
+			double total = 0.00;
+			
+			//Put it into the new Order object
+			myOrder.setAddress(address);
+			myOrder.setCity(city);
+			myOrder.setState(state);
+			myOrder.setCountry(country);
+			myOrder.setZipCode(postalCode);
+			myOrder.setPhone(phone);
+			myOrder.setEmail(email);
+			myOrder.setOrderDate(today);
+			myOrder.setTotal(total);
+			
+			
+			ordersModel.create(myOrder);
+			return new ModelAndView("storeindex","usersModel","usersModel");
+		
+		}else {
+			model.put("error", "Please choose another username. This has been used");
+		}
+		
+		return new ModelAndView("Login", "userModel", "userModel");
+	}
+	
+	/**
+	 * Check whether the user is existed or not in the DB
+	 * @param username
+	 * @return
+	 */
+	private boolean isUserExist(String username) {
+		boolean result = false;
+		
+		List<Users> usersFromDB = userModel.retrieveAllUsers();
+		if (usersFromDB.isEmpty())
+			return false;
+		
+		for (Users user : usersFromDB) {
+			if (user.getUsername().equals(username))
+				result = true;
+		}
+		
+		return result;
+	}
+}

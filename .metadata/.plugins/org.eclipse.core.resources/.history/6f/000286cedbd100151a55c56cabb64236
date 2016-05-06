@@ -1,0 +1,336 @@
+/* --------------------------------------------- */
+/* BASIC SETUP */
+/* --------------------------------------------- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box; 
+}
+
+html,
+body {
+    color: #555;
+    font-family: 'Lato', 'Arial', sans-serif;
+    font-weight: 300;
+    font-size: 20px;
+    text-rendering: optimizeLegibility;
+    overflow-x: hidden;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(img/music-background.jpg);
+    background-size: cover;
+    background-attachment: fixed;
+    background-position: center;
+}
+
+.clearfix {zoom: 1}
+.clearfix:after {
+    content: '.';
+    clear: both;
+    display: block;
+    height: 0;
+    visibility: hidden;
+}
+
+/* --------------------------------------------- */
+/* REUSABLE COMPONENTS */
+/* --------------------------------------------- */
+
+
+.row {
+    max-width: 1140px;
+    margin: 0 auto;
+}
+
+section {
+    padding: 80px 0;
+}
+
+.box {
+    padding: 1px;
+}
+
+/* --------- HEADINGS ----------- */
+h1, h2, h3 {
+    font-weight: 300;
+    text-transform: uppercase; 
+}
+
+h1 {
+    margin-top 0;
+    margin-bottom: 20px;
+    color: #fff;
+    font-size: 240%;
+    word-spacing: 3px;
+    letter-spacing: 1px;
+}
+
+h2 {
+    font-size: 160%;
+    word-spacing: 2px;
+    width: 600px;
+    margin: 0 auto;
+    text-align: center;
+    margin-bottom: 30px;
+    color: #fff;
+}
+
+h3 {
+    font-size: 110%;
+    margin-bottom: 15px;
+    color: #fff;
+    
+}
+
+h4 {
+    font-size: 80%;
+    margin-bottom: 15px;
+    color: #fff;
+    
+}
+
+h2:after {
+    display: block;
+    height: 2px;
+    background-color: #e67e22;
+    content: " ";
+    width: 100px;
+    margin: 0 auto;
+    margin-top: 30px;
+}
+
+
+
+/* -------- PARAGRAPHS ------- */
+.long-copy {
+    line-height: 145%;
+    width: 70%;
+    margin-left: 15%;
+}
+
+.box p {
+    font-size: 90%;
+    line-height: 150%;
+}
+
+/* ------- LINKS ------- */
+
+a:link,
+a:visited {
+    color: #e67e22;
+    text-decoration: none;
+    padding-bottom: 1px; 
+    border-bottom: none;
+    transition: border-bottom 0.2s, color 0.2s;
+}
+
+a:hover, 
+a:active {
+    color: #555;
+    border-bottom: 1px solid transparent;
+}
+
+
+/* ------- BUTTONS ------- */
+.btn:link, 
+.btn:visited,
+input[type="submit"] {
+    display: inline-block;
+    padding: 10px 30px;
+    font-weight: 300;
+    text-decoration: none;
+    border-radius: 12px;
+    transition: background-color 0.2s, border 0.2s, color 0.2s;
+}
+
+
+.btn-full:link,
+.btn-full:visited,
+input[type="submit"]{
+    background-color: #e67e22;
+    border: 1px solid #e67e22;
+    color: #fff;
+    margin-right: 15px;
+}
+
+.btn-ghost:link,
+.btn-ghost:visited {
+    border: 1px solid #e67e22;
+    color: #e67e22;
+}
+
+.btn:hover,
+.btn:active,
+input[type="submit"]:hover,
+input[type="submit"]:active {
+    background-color: #cf6d17;
+}
+
+.btn-full:hover,
+.btn-full:active,
+input[type="submit"] {
+    border: 1px solid #cf6d17;
+}
+
+.btn-ghost:hover,
+.btn-ghost:active {
+    border: 1px solid #cf6d17;
+    color: #fff;
+}
+
+
+/* --------------------------------------------- */
+/* HEADER */
+/* --------------------------------------------- */
+
+.hero-text-box {
+    position: absolute;
+    width: 1140px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.logo {
+    height: 100px;
+    width: auto;
+    float: left;
+    margin-top: 20px;
+}
+
+.logo-black { 
+    display: none; 
+    height: 50px;
+    width: auto;
+    float: left;
+    margin: 5px 0;
+}
+
+/*  Main navi  */
+.main-nav {
+    float: right;
+    list-style: none;
+    margin-top: 50px;
+}
+
+.main-nav li {
+    display:  inline-block;
+    margin-left: 40px;
+}
+
+.main-nav li a:link,
+.main-nav li a:visited {
+    padding: 8px 0;
+    color: #fff;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-size: 90%;
+    border-bottom: 2px solid transparent;
+    transition: border-bottom 0.2s;
+}
+
+.main-nav li a:hover,
+.main-nav li a:active{
+    border-bottom: 2px solid #e67e22;
+}
+
+/***************************** sidebar navigation ****************************/
+
+#categories
+{
+	list-style-type: none;
+	margin-top: 50px;
+	border-right: #5d5a53 1px dotted;
+	border-bottom: none;
+	padding: 50px 50px 0 50px;
+	margin: 0 50px 0 0;
+	float: left;
+}
+
+
+#categories a:link, #categories a:visited
+{
+	color: #9B9993;
+	text-decoration: none;
+	border-bottom: none;
+}
+#categories a:hover
+{
+	color: #e67e22;
+}
+
+div#album-details p
+{
+	margin-bottom: 5px;
+	color: #5e5b54;
+	font-weight: bold;
+}
+
+.section-browse a {
+	border-bottom: none;	
+}
+
+/* Tables */
+table
+{
+	border: 1px solid #000;
+	border-collapse: collapse;
+	color: #666666;
+	min-width: 500px;
+	width: 100%;
+}
+
+tr
+{
+	border: 1px solid #000;
+	line-height: 25px;
+}
+
+th
+{
+	background-color: #9b9993;
+	color: #000;
+	font-size: 13px;
+	text-align: left;
+}
+
+th, td
+{
+	padding-left: 5px;
+}
+
+/****************************************************/
+/*			FORM STYLES						*/
+/****************************************************/
+legend
+{
+	padding: 10px;
+	font-weight: bold;
+	font-size: 110%;
+    margin-bottom: 15px;
+    color: #fff;
+}
+
+fieldset
+{
+	border: #9b9993 1px solid;
+	padding: 0 10px;
+	margin-bottom: 10px;
+	clear: left;
+}
+
+/****************************************************/
+/*			REGISTER SECTION							*/
+/****************************************************/
+.section-register table, tr, th, td {
+	border: none;	
+	border-collapse: collapse;
+	margin-bottom: 10px;
+}
+
+
+/****************************************************/
+/*			LOGIN SECTION							*/
+/****************************************************/
+.section-login {
+	text-align: center;
+}
+

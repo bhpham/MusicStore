@@ -1,0 +1,7 @@
+INDEX VERSION 1.126
+C:\Users\Binh Pham\MusicStoreSpringMVC\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\2870023100.index
+\MusicStoreSpringMVC\src
+C:\Users\Binh Pham\MusicStoreSpringMVC\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\587442593.index
+\MusicStoreSpringMVC\src
+C:\Users\Binh Pham\MusicStoreSpringMVC\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\889994395.index
+\MusicStoreSpringMVC\src

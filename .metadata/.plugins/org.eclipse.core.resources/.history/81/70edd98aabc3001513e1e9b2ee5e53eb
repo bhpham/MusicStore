@@ -1,0 +1,61 @@
+package com.musicstore.entities;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.OneToOne;
+import javax.persistence.SequenceGenerator;
+import javax.persistence.Table;
+
+@Entity
+@Table(name="USER_ROLE")
+public class UserRole {
+	
+	@Id
+	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "sequrIDKey")
+	@SequenceGenerator(name = "sequrIDKey", sequenceName = "SEQ_URID_KEY", allocationSize = 1)
+	@Column(name="UROLEID")
+	private int userRoleId;
+	
+	@Column(name="UROLENAME")
+	private String userRoleName;
+	
+	@OneToOne
+	private Users user;
+	
+	public UserRole() {}
+
+	public UserRole(int userRoleId, String userRoleName, Users user) {
+		super();
+		this.userRoleId = userRoleId;
+		this.userRoleName = userRoleName;
+		this.user = user;
+	}
+	
+	public int getUserRoleId() {
+		return userRoleId;
+	}
+
+	public void setUserRoleId(int userRoleId) {
+		this.userRoleId = userRoleId;
+	}
+
+	public String getUserRoleName() {
+		return userRoleName;
+	}
+
+	public void setUserRoleName(String userRoleName) {
+		this.userRoleName = userRoleName;
+	}
+
+	public Users getUser() {
+		return user;
+	}
+
+	public void setUser(Users user) {
+		this.user = user;
+	};
+	
+}
