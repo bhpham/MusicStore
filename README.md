@@ -6,3 +6,4 @@ This web application is divided into multiple categories with 13 landing jsp pag
   index.jsp:
   Browse.jsp:
   
+  ......Uncompleted....
